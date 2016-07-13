@@ -8,6 +8,17 @@ Bundler.require(*Rails.groups)
 
 module S7apptuit
   class Application < Rails::Application
+
+
+    $client = Twitter::REST::Client.new do |config|
+            
+      config.consumer_key        = ENV['TWITTER_API_KEY']
+      config.consumer_secret     = ENV['TWITTER_API_SECRET']
+      config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+      config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
+    end
+
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
